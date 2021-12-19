@@ -4,9 +4,17 @@
     <base target="_top">
   </head>
   <body>
-    <div style="width:1000px;border-radius:5px;height:auto;background-color:#FFFFF4;border-width:3px;border-style:solid;border-color:#FAFAF0;"><img src="https://upload.cc/i1/2021/06/16/Nauhj0.png"width="38px"/ ><h1 style="display:inline;">東原國中教務處</h1>
-     <iframe name="hidden_iframe" style="display:none;"></iframe>
-<form style="font-size:25px" action="https://script.google.com/macros/s/AKfycbwRS6ltQm19pk5LmfGwW62hl_-oxNmgr6qeKy566VgYDoChGCLCRhJXpPxL2qnpiAhHtw/exec" method="post" target="hidden_iframe">
+    <div style="width:100%;
+                border-radius:5px;
+                height:auto;
+                background-color:#FFFFF4;
+                border-width:3px;
+                border-style:solid;border-color:#FAFAF0;
+                text-align: center">
+    <img src="https://upload.cc/i1/2021/06/16/Nauhj0.png"width="38px"/ >
+    <h1 style="display:inline;">東原國中教務處</h1>
+    <iframe name="hidden_iframe" style="display:none;"></iframe>
+<form id="myForm" style="font-size:25px; text-align: center" action="https://script.google.com/macros/s/AKfycbwRS6ltQm19pk5LmfGwW62hl_-oxNmgr6qeKy566VgYDoChGCLCRhJXpPxL2qnpiAhHtw/exec" method="post" target="hidden_iframe">
 
 <input type="hidden" name="method" value="write" />
 <input type="text" name="name1" placeholder="填入上課老師" title="填入上課老師" />
@@ -119,9 +127,21 @@
 
 <br/>
 
-<input type="submit"   value="提交" />
+<input id="submitButton"  type="submit"   value="提交" />
 <button type="reset">RESET</button>
 </form>
 </div>
+    
+    <script>
+        function afterButtonClicked() {
+           
+            document.getElementById("myForm").reset();
+            google.script.run.addNewRow(rowData);
+            alert("成功上傳");
+        }
+
+    document.getElementById("submitButton").addEventListener("click", afterButtonClicked);
+    </script>
+    
   </body>
 </html>
