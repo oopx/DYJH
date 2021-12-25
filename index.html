@@ -26,7 +26,7 @@
          $td.removeClass();
          $td.removeAttr("style");
          $td.children().attr('required','required') ;
-         for(i=1;i<=6;i++){
+         for(i=0;i<6;i++){
             $td.children().eq(i).attr('name', ($td.children().eq(i).attr('name'))+String(j)); 
             
          }
