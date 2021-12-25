@@ -48,6 +48,9 @@
 	}
 
     function deleteNew() {
+        if(j<=0)
+        { j=1;
+          return; }
         $td=$("#"+String(j-1));
         $td.detach();
         j=j-1;
