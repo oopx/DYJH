@@ -34,6 +34,7 @@
         
         $td=$(".btn").clone();
          $(this).val(""); 
+         $td.attr('id',j);
          
          $td.removeClass();
          $td.removeAttr("style");
@@ -45,11 +46,19 @@
          j=j+1;
 	    $("form").append($td);
 	}
+
+    function deleteNew() {
+        $td=$("#"+String(j-1));
+        $td.detach();
+        j=j-1;
+    }
     
 
   $(document).ready(function(){
     addnew();
     $("#btn1").click (addnew);
+    $("#btn2").click (deleteNew);
+    
     
 
  
@@ -77,14 +86,14 @@
          <input class="col-sm-2" type="text" name="name" placeholder="填入上課老師" title="填入上課老師"  class="btn" >  
          <input class="col-sm-3" placeholder="日期：" name="date" type="date">    
          <select class="col-sm-1"   placeholder="節次" name="classes">
-            　<option value="1">1</option>
-            　<option value="2">2</option>
-            　<option value="3">3</option>
-            　<option value="4">4</option>
-            　<option value="5">5</option>
-            　<option value="6">6</option>
-            　<option value="7">7</option>
-            　<option value="8">8</option>
+            　<option value="1">第1節</option>
+            　<option value="2">第2節</option>
+            　<option value="3">第3節</option>
+            　<option value="4">第4節</option>
+            　<option value="5">第5節</option>
+            　<option value="6">第6節</option>
+            　<option value="7">第7節</option>
+            　<option value="8">第8節</option>
     
         }
         </select>
@@ -101,12 +110,15 @@
    
   </div>
   <input  type="hidden" name="method" value="write"  >
-  <input  type="hidden" name="number" value=j  >
-  <button  class="col-sm-5" id="submitButton"  type="submit"   value="提交" >提交</button>
+  
+  <button class="col-sm-5" id="btn1">新增表格</button>
+  
      
 </form>
-<button class="col-sm-5" id="btn1">新增表格</button>
-    
+
+<button class="col-sm-5" id="btn2">刪除表格</button>
+<button  class="col-sm-12" id="submitButton"  type="submit"   value="提交" >提交</button>
+
 
 
 
