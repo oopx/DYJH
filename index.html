@@ -3,134 +3,71 @@
   <head>
     <base target="_top">
   </head>
+  
+  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script>
+    var j=1;
+$(document).ready(function(){
+	$("#btn1").click(function(){
+        
+        $td=$(".btn").clone();
+         $(this).val("");  
+         $td.removeClass();
+
+         for(i=1;i<=6;i++){
+            $td.children().eq(i).attr('name', ($td.children().eq(i).attr('name'))+String(j));  
+         }
+         j=j+1;
+	    $("form").append($td);
+	});
+
+});
+</script>
+  
+  <stytle>
+    form>input,form>select{
+    
+    }
+  </stytle>
+  
   <body>
-    <div style="width:100%;
-                border-radius:5px;
-                height:auto;
-                background-color:#FFFFF4;
-                border-width:3px;
-                border-style:solid;border-color:#FAFAF0;
-                text-align: center">
-    <img src="https://upload.cc/i1/2021/06/16/Nauhj0.png"width="38px"/ >
-    <h1 style="display:inline;">東原國中教務處</h1>
-    <iframe name="hidden_iframe" style="display:none;"></iframe>
-<form id="myForm" style="font-size:25px; text-align: center" action="https://script.google.com/macros/s/AKfycby8OLr9U4aK85haneeyqQbMsR_DfYdgLwuXG138bKcmwrv1QMzXfzWIf02wZwzD7HYG/exec" method="post" target="hidden_iframe">
+   
+    
+    <form style="line-height:2em;padding: 0%;"  action="https://script.google.com/macros/s/AKfycby8OLr9U4aK85haneeyqQbMsR_DfYdgLwuXG138bKcmwrv1QMzXfzWIf02wZwzD7HYG/exec" method="post"  target="hidden_iframe">
+        <div class="btn" name="method"  style="line-height:2em;padding: 0%;" >
+        <input  type="hidden" name="method" value="write" >   
+         <input class="col-sm-2" type="text" name="name" placeholder="填入上課老師" title="填入上課老師"  class="btn">  
+         <input class="col-sm-2" placeholder="日期：" name="date" type="date">    
+         <select class="col-sm-1"   placeholder="節次" name="classes">
+            　<option value="1">1</option>
+            　<option value="2">2</option>
+            　<option value="3">3</option>
+            　<option value="4">4</option>
+            　<option value="5">5</option>
+            　<option value="6">6</option>
+            　<option value="7">7</option>
+            　<option value="8">8</option>
+    
+        }
+        </select>
 
-<input type="hidden" name="method" value="write" />
-<input type="text" name="name1" placeholder="填入上課老師" title="填入上課老師" />
-日期：<input name="date1" placeholder="填入上課日期" type="date">
-節次：<select name="classes1">
-  　<option value="1">1</option>
-  　<option value="2">2</option>
-  　<option value="3">3</option>
-  　<option value="4">4</option>
-  　<option value="5">5</option>
-  　<option value="6">6</option>
-  　<option value="7">7</option>
-  　<option value="8">8</option>
+        <input class="col-sm-2" type="text" name="classroom" placeholder="填入班級" title="填入班級" />
+        <input class="col-sm-2" type="text" name="subject" placeholder="填入科目" title="填入科目" />
+        <select class="col-sm-1" name="type">
+        　<option  value="type">調課</option>
+        　<option  value="type">排代</option>
+        </select>
+        <input class="col-sm-1" id="submitButton"  type="submit"   value="提交" />
 
-  </select>
-<input type="text" name="classroom1" placeholder="填入班級" title="填入班級" />
-<input type="text" name="subject1" placeholder="填入科目" title="填入科目" />
-課務：<select name="type1">
-  　<option value="調課">調課</option>
-  　<option value="排代">排代</option>
-  </select>
-
-<br/>
-  
-  <input type="text" name="name2" placeholder="填入上課老師" title="填入上課老師" />
-日期：<input name="date2" type="date">
-節次：<select name="classes2">
-  　<option value="1">1</option>
-  　<option value="2">2</option>
-  　<option value="3">3</option>
-  　<option value="4">4</option>
-  　<option value="5">5</option>
-  　<option value="6">6</option>
-  　<option value="7">7</option>
-  　<option value="8">8</option>
-
-  </select>
-<input type="text" name="classroom2" placeholder="填入班級" title="填入班級" />
-<input type="text" name="subject2" placeholder="填入科目" title="填入科目" />
-課務：<select name="type2">
-  　<option value="調課">調課</option>
-  　<option value="排代">排代</option>
-  </select>
-
-<br/>
-  
- <input type="text" name="name3" placeholder="填入上課老師" title="填入上課老師" />
-日期：<input name="date3" type="date">
-節次：<select name="classes3">
-  　<option value="1">1</option>
-  　<option value="2">2</option>
-  　<option value="3">3</option>
-  　<option value="4">4</option>
-  　<option value="5">5</option>
-  　<option value="6">6</option>
-  　<option value="7">7</option>
-  　<option value="8">8</option>
-
-  </select>
-<input type="text" name="classroom3" placeholder="填入班級" title="填入班級" />
-<input type="text" name="subject3" placeholder="填入科目" title="填入科目" />
-課務：<select name="type3">
-  　<option value="調課">調課</option>
-  　<option value="排代">排代</option>
-  </select>
-
-<br/>
-  
-  <input type="text" name="name4" placeholder="填入上課老師" title="填入上課老師" />
-日期：<input name="date4" type="date">
-節次：<select name="classes4">
-  　<option value="1">1</option>
-  　<option value="2">2</option>
-  　<option value="3">3</option>
-  　<option value="4">4</option>
-  　<option value="5">5</option>
-  　<option value="6">6</option>
-  　<option value="7">7</option>
-  　<option value="8">8</option>
-
-  </select>
-<input type="text" name="classroom4" placeholder="填入班級" title="填入班級" />
-<input type="text" name="subject4" placeholder="填入科目" title="填入科目" />
-課務：<select name="type4">
-  　<option value="調課">調課</option>
-  　<option value="排代">排代</option>
-  </select>
-
-<br/>
-  
-  <input type="text" name="name5" placeholder="填入上課老師" title="填入上課老師" />
-日期：<input name="date5" type="date">
-節次：<select name="classes5">
-  　<option value="1">1</option>
-  　<option value="2">2</option>
-  　<option value="3">3</option>
-  　<option value="4">4</option>
-  　<option value="5">5</option>
-  　<option value="6">6</option>
-  　<option value="7">7</option>
-  　<option value="8">8</option>
-
-  </select>
-<input type="text" name="classroom5" placeholder="填入班級" title="填入班級" />
-<input type="text" name="subject5" placeholder="填入科目" title="填入科目" />
-課務：<select name="type5">
-  　<option value="調課">調課</option>
-  　<option value="排代">排代</option>
-  </select>
-
-<br/>
-
+    </div>
+    
+    </form>
+    
+<button id="btn1">插入文本</button>
+<button id="btn2">插入列表项</button>
 <input id="submitButton"  type="submit"   value="提交" />
-<button type="reset">RESET</button>
-</form>
-</div>
+
+</body>
     
     <script>
         function afterButtonClicked() {
