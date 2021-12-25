@@ -7,6 +7,8 @@
   </head>
   
   <style>
+     
+        
     
     hr.style-one {
         border: 0;
@@ -14,6 +16,13 @@
         background: #333;
         background-image: linear-gradient(to right, #ccc, #333, #ccc);
     }
+    button, form * {
+      font-size:20px;
+      border-radius:6px;
+      margin: 10;
+      padding: 10;
+    }
+      
     </style>
     
   
@@ -28,7 +37,7 @@
          
          $td.removeClass();
          $td.removeAttr("style");
-         //$td.children().attr('required','required') ;
+         $td.children().attr('required','required') ;
          for(i=0;i<6;i++){
             $td.children().eq(i).attr('name', ($td.children().eq(i).attr('name'))+String(j)); 
             
@@ -62,11 +71,11 @@
     <h1 style="display:inline;">東原國中教務處</h1>
     <iframe name="hidden_iframe" style="display:none;"></iframe>
 
-    <form id="myForm" onsubmit="alert('成功上傳')" style="line-height:2em;padding: 0%;"  action="https://script.google.com/macros/s/AKfycbxSSPf5jmI5VJwm4379pVzivv2fpS5eX0ZFfKXyXZW4FGMPQkxn608qVNausOArf3GQog/exec" method="post"  target="hidden_iframe">
+    <form id="myForm" onsubmit="alert('成功上傳')" style="line-height:2em;padding: 0%;"  action="https://script.google.com/macros/s/AKfycbylhrqXhNUlg0jUuwoMfngHxBVOwCbfJi--to81a-Q6jKNRFn7NJK2XzkT6ZfNPgzkXQQ/exec" method="post"  target="hidden_iframe">
         <div style="display:none" class="btn" name="method"  style="line-height:2em;padding: 0%;" >
            
          <input class="col-sm-2" type="text" name="name" placeholder="填入上課老師" title="填入上課老師"  class="btn" >  
-         <input class="col-sm-2" placeholder="日期：" name="date" type="date">    
+         <input class="col-sm-3" placeholder="日期：" name="date" type="date">    
          <select class="col-sm-1"   placeholder="節次" name="classes">
             　<option value="1">1</option>
             　<option value="2">2</option>
@@ -110,11 +119,11 @@
     
     <script>
         function afterButtonClicked() {
-         // var jsonData = $('#myForm').serializeArray();
-          //alert($.param(jsonData));
+          var jsonData = $('#myForm').serializeArray();
+         // alert($.param(jsonData));
             //document.getElementById("myForm").reset();
             //google.script.run.addNewRow(rowData);
-            //alert("成功上傳");
+           // alert("成功上傳");
         }
 
     document.getElementById("submitButton").addEventListener("click", afterButtonClicked);
