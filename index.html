@@ -2,41 +2,67 @@
 <html>
   <head>
     <base target="_top">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
   </head>
+  <style>
+    hr.style-one {
+        border: 0;
+        height: 1px;
+        background: #333;
+        background-image: linear-gradient(to right, #ccc, #333, #ccc);
+    }
+    </style>
+    
   
   <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
 <script>
     var j=1;
-$(document).ready(function(){
-	$("#btn1").click(function(){
+
+    function addnew(){
         
         $td=$(".btn").clone();
-         $(this).val("");  
+         $(this).val(""); 
+         
          $td.removeClass();
-
+         $td.removeAttr("style");
+         $td.children().attr('required','required') ;
          for(i=1;i<=6;i++){
-            $td.children().eq(i).attr('name', ($td.children().eq(i).attr('name'))+String(j));  
+            $td.children().eq(i).attr('name', ($td.children().eq(i).attr('name'))+String(j)); 
+            
          }
          j=j+1;
 	    $("form").append($td);
-	});
+	}
+    
 
-});
+  $(document).ready(function(){
+    addnew();
+    $("#btn1").click (addnew);
+    
+
+ 
+
+  })
 </script>
   
-  <stytle>
-    form>input,form>select{
-    
-    }
-  </stytle>
+  
   
   <body>
-   
-    
-    <form style="line-height:2em;padding: 0%;"  action="https://script.google.com/macros/s/AKfycby8OLr9U4aK85haneeyqQbMsR_DfYdgLwuXG138bKcmwrv1QMzXfzWIf02wZwzD7HYG/exec" method="post"  target="hidden_iframe">
-        <div class="btn" name="method"  style="line-height:2em;padding: 0%;" >
-        <input  type="hidden" name="method" value="write" >   
-         <input class="col-sm-2" type="text" name="name" placeholder="填入上課老師" title="填入上課老師"  class="btn">  
+    <div style="
+    border-radius:5px;
+    height:auto;
+    background-color:#FFFFF4;
+    border-width:3px;
+    border-style:solid;border-color:#FAFAF0;
+    text-align: center">
+    <img src="https://upload.cc/i1/2021/06/16/Nauhj0.png"width="50px"/ >
+    <h1 style="display:inline;">東原國中教務處</h1>
+    <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+    <form onsubmit="alert('成功上傳')" style="line-height:2em;padding: 0%;"  action="https://script.google.com/macros/s/AKfycbxSSPf5jmI5VJwm4379pVzivv2fpS5eX0ZFfKXyXZW4FGMPQkxn608qVNausOArf3GQog/exec" method="post"  target="hidden_iframe">
+        <div style="display:none" class="btn" name="method"  style="line-height:2em;padding: 0%;" >
+           
+         <input class="col-sm-2" type="text" name="name" placeholder="填入上課老師" title="填入上課老師"  class="btn" >  
          <input class="col-sm-2" placeholder="日期：" name="date" type="date">    
          <select class="col-sm-1"   placeholder="節次" name="classes">
             　<option value="1">1</option>
@@ -57,15 +83,21 @@ $(document).ready(function(){
         　<option  value="type">調課</option>
         　<option  value="type">排代</option>
         </select>
-        <input class="col-sm-1" id="submitButton"  type="submit"   value="提交" />
+        <hr class="style-one" />
 
     </div>
+   
+  </div>
+  <input  type="hidden" name="method" value="write"  >
+  <input  type="hidden" name="number" value=j  >
+  <button  class="col-sm-5" id="submitButton"  type="submit"   value="提交" >提交</button>
+     
+</form>
+<button class="col-sm-5" id="btn1">新增表格</button>
     
-    </form>
-    
-<button id="btn1">插入文本</button>
-<button id="btn2">插入列表项</button>
-<input id="submitButton"  type="submit"   value="提交" />
+
+
+
 
 </body>
     
@@ -74,7 +106,7 @@ $(document).ready(function(){
            
             //document.getElementById("myForm").reset();
             //google.script.run.addNewRow(rowData);
-            alert("成功上傳");
+            //alert("成功上傳");
         }
 
     document.getElementById("submitButton").addEventListener("click", afterButtonClicked);
