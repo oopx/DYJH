@@ -12,9 +12,9 @@
     
     hr.style-one {
         border: 0;
-        height: 1px;
+        height: 2px;
         background: #333;
-        background-image: linear-gradient(to right, #ccc, #333, #ccc);
+        background-image: linear-gradient(to right, rgb(173, 78, 252), rgb(100, 0, 131), rgb(173, 78, 252));
     }
     button, form * {
       font-size:20px;
@@ -22,6 +22,24 @@
       margin: 10;
       padding: 10;
     }
+
+    button{
+      
+      background:rgb(246, 255, 122); 
+      padding: 25;
+      font-size:30;
+
+         
+    }
+
+    input,select{
+      border-radius:0px;
+      padding: 25;
+      border: solid 1px #000;
+      appearance:none;
+      -moz-appearance:none;
+      -webkit-appearance:none;
+     } 
       
     </style>
     
@@ -48,7 +66,7 @@
 	}
 
     function deleteNew() {
-        if(j<=0)
+        if(j<=1)
         { j=1;
           return; }
         $td=$("#"+String(j-1));
@@ -79,7 +97,7 @@
     border-width:3px;
     border-style:solid;border-color:#FAFAF0;
     text-align: center">
-    <img src="https://upload.cc/i1/2021/06/16/Nauhj0.png"width="50px"/ >
+    <img src="https://upload.cc/i1/2021/06/16/Nauhj0.png"width="45px" / >
     <h1 style="display:inline;">東原國中教務處</h1>
     <iframe name="hidden_iframe" style="display:none;"></iframe>
 
