@@ -9,7 +9,10 @@
   <style>
      
         
-    
+    *{
+      text-align: center;
+    }
+
     hr.style-one {
         border: 0;
         height: 2px;
@@ -44,25 +47,27 @@
     </style>
     
   
-  <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+  <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script>
     var j=1;
 
     function addnew(){
         
-        $td=$(".btn").clone();
+        $td=$(".cell").clone();
          $(this).val(""); 
          $td.attr('id',j);
          
          $td.removeClass();
          $td.removeAttr("style");
-         $td.children().attr('required','required') ;
+         //$td.children().attr('required','required') ;
          for(i=0;i<6;i++){
             $td.children().eq(i).attr('name', ($td.children().eq(i).attr('name'))+String(j)); 
             
          }
          j=j+1;
 	    $("form").append($td);
+      
+     
 	}
 
     function deleteNew() {
@@ -78,8 +83,34 @@
   $(document).ready(function(){
     addnew();
     $("#btn1").click (addnew);
-    $("#btn2").click (deleteNew);
     
+    $("#btn2").click (deleteNew);
+    $(".change").hide(); 
+
+    
+    $("#myForm").on("change",".type",function(){
+      
+      a=$(this).val();
+      //alert(a);
+      //$(".change").hide();
+
+      console.log("調課");
+      $(this).parent().find(".change").hide();
+      if(a=="調課")
+      {
+        
+        
+        $(this).parent().find(".change").show();
+      }
+
+      $(this).css("background-color","#FFFFCC");
+      
+      //console.log( $(".chnage").val() );
+
+    
+    
+  });
+  
     
 
  
@@ -90,6 +121,52 @@
   
   
   <body>
+    <!-- 表格模組 -->
+    <div style="display:none" class="cell" name="method"  style="line-height:2em;padding: 0%;" >
+           
+      <input class="col-sm-2" type="text" name="name" placeholder="填入代課老師" title="填入代課老師" required="required"   >  
+      <input class="col-sm-3" placeholder="日期：" name="date" type="date" required="required" >    
+      <select class="col-sm-1"   placeholder="節次" name="classes" required="required" >
+       　  <option value="">節次</option>
+           <option value="1">第1節</option>
+         　<option value="2">第2節</option>
+         　<option value="3">第3節</option>
+         　<option value="4">第4節</option>
+         　<option value="5">第5節</option>
+         　<option value="6">第6節</option>
+         　<option value="7">第7節</option>
+         　<option value="8">第8節</option>
+ 
+     }
+     </select>
+
+     <input class="col-sm-2" type="text" name="classroom" placeholder="調課班級" title="填入班級" required="required" />
+     <input class="col-sm-2" type="text" name="subject" placeholder="調課科目" title="填入科目" required="required" />
+     <select class="col-sm-1 type " name="type" required="required" >
+       <option  value="">課務</option>
+       <option  value="調課">調課</option>
+      　<option  value="排代">排代</option>
+     </select>
+
+     <input class="col-sm-3  change" placeholder="調課日期：" name="re_date" type="date">    
+     <select class="col-sm-1   change"   placeholder="調課節次" name="re_classes">
+       　<option value="">節次</option>
+         <option value="1">第1節</option>
+       　<option value="2">第2節</option>
+       　<option value="3">第3節</option>
+       　<option value="4">第4節</option>
+       　<option value="5">第5節</option>
+       　<option value="6">第6節</option>
+       　<option value="7">第7節</option>
+       　<option value="8">第8節</option>
+
+       <input class="col-sm-2  change" type="text" name="classroom" placeholder="擬調課班級" title="填入班級" />
+       <input class="col-sm-2  change" type="text" name="subject" placeholder="填入科目" title="填入科目" />
+
+     <hr class="style-one" />
+
+     <!-- 正文開始 -->
+ </div>
     <div style="
     border-radius:0px;
     height:auto;
@@ -102,32 +179,7 @@
     <iframe name="hidden_iframe" style="display:none;"></iframe>
 
     <form id="myForm" onsubmit="alert('成功上傳')" style="line-height:2em;padding: 0%;"  action="https://script.google.com/macros/s/AKfycbylhrqXhNUlg0jUuwoMfngHxBVOwCbfJi--to81a-Q6jKNRFn7NJK2XzkT6ZfNPgzkXQQ/exec" method="post"  target="hidden_iframe">
-        <div style="display:none" class="btn" name="method"  style="line-height:2em;padding: 0%;" >
-           
-         <input class="col-sm-2" type="text" name="name" placeholder="填入上課老師" title="填入上課老師"  class="btn" >  
-         <input class="col-sm-3" placeholder="日期：" name="date" type="date">    
-         <select class="col-sm-1"   placeholder="節次" name="classes">
-            　<option value="1">第1節</option>
-            　<option value="2">第2節</option>
-            　<option value="3">第3節</option>
-            　<option value="4">第4節</option>
-            　<option value="5">第5節</option>
-            　<option value="6">第6節</option>
-            　<option value="7">第7節</option>
-            　<option value="8">第8節</option>
-    
-        }
-        </select>
-
-        <input class="col-sm-2" type="text" name="classroom" placeholder="填入班級" title="填入班級" />
-        <input class="col-sm-2" type="text" name="subject" placeholder="填入科目" title="填入科目" />
-        <select class="col-sm-1" name="type">
-        　<option  value="調課">調課</option>
-        　<option  value="排代">排代</option>
-        </select>
-        <hr class="style-one" />
-
-    </div>
+        
    
   </div>
   <input  type="hidden" name="method" value="write"  >
