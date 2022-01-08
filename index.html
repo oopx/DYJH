@@ -210,12 +210,13 @@
         {
           //confirmExit("ok?");
           if (confirm("確定要提交登記了嗎")==true){ 
-          return true; 
+          
           alert("成功上傳");
+          return true; 
           }
           else{ 
            event.preventDefault();
-           window.history.back(); 
+           //window.history.back(); 
           
         }
       }
