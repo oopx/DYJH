@@ -60,7 +60,7 @@
          $td.removeClass();
          $td.removeAttr("style");
          //$td.children().attr('required','required') ;
-         for(i=0;i<6;i++){
+         for(i=0;i<10;i++){
             $td.children().eq(i).attr('name', ($td.children().eq(i).attr('name'))+String(j)); 
             
          }
@@ -140,7 +140,7 @@
      }
      </select>
 
-     <input class="col-sm-2" type="text" name="classroom" placeholder="調課班級" title="填入班級" required="required" />
+     <input class="col-sm-2" type="text" name="classroom" placeholder="代課班級" title="填入班級" required="required" />
      <input class="col-sm-2" type="text" name="subject" placeholder="調課科目" title="填入科目" required="required" />
      <select class="col-sm-1 type " name="type" required="required" >
        <option  value="">課務</option>
@@ -160,8 +160,8 @@
        　<option value="7">第7節</option>
        　<option value="8">第8節</option>
 
-       <input class="col-sm-2  change" type="text" name="classroom" placeholder="擬調課班級" title="填入班級" />
-       <input class="col-sm-2  change" type="text" name="subject" placeholder="填入科目" title="填入科目" />
+       <input class="col-sm-2  change" type="text" name="re_classroom" placeholder="調課班級" title="填入班級" />
+       <input class="col-sm-2  change" type="text" name="re_subject" placeholder="填入科目" title="填入科目" />
 
      <hr class="style-one" />
 
@@ -178,7 +178,9 @@
     <h1 style="display:inline;">東原國中教務處</h1>
     <iframe name="hidden_iframe" style="display:none;"></iframe>
 
-    <form id="myForm" onsubmit="alert('成功上傳')" style="line-height:2em;padding: 0%;"  action="https://script.google.com/macros/s/AKfycbylhrqXhNUlg0jUuwoMfngHxBVOwCbfJi--to81a-Q6jKNRFn7NJK2XzkT6ZfNPgzkXQQ/exec" method="post"  target="hidden_iframe">
+    <form id="myForm" onsubmit=confirmExit()  style="line-height:2em;padding: 0%;"  
+    action="https://script.google.com/macros/s/AKfycbw4c7mrjK5b5h6YLD88JkEI1sTUA-to5LpRJTPlU_OIuIro5xcrJhe08JW2byCOkaqDWw/exec" 
+    method="post"  target="hidden_iframe">
         
    
   </div>
@@ -203,6 +205,21 @@
 </body>
     
     <script>
+        
+        function confirmExit()
+        {
+          //confirmExit("ok?");
+          if (confirm("確定要提交登記了嗎")==true){ 
+          return true; 
+          alert("成功上傳");
+          }
+          else{ 
+           event.preventDefault();
+           window.history.back(); 
+          
+        }
+      }
+
         function afterButtonClicked() {
           var jsonData = $('#myForm').serializeArray();
          // alert($.param(jsonData));
