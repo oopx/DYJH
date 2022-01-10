@@ -50,6 +50,7 @@
   <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 <script>
     var j=1;
+    var ori_name = $('#original').val();
 
     function addnew(){
         
@@ -60,7 +61,7 @@
          $td.removeClass();
          $td.removeAttr("style");
          //$td.children().attr('required','required') ;
-         for(i=0;i<10;i++){
+         for(i=0;i<11;i++){
             $td.children().eq(i).attr('name', ($td.children().eq(i).attr('name'))+String(j)); 
             
          }
@@ -78,7 +79,9 @@
         $td.detach();
         j=j-1;
     }
-    
+  
+  
+
 
   $(document).ready(function(){
     addnew();
@@ -95,6 +98,7 @@
       //$(".change").hide();
 
       console.log("調課");
+      console.log(ori_name);
       $(this).parent().find(".change").hide();
       if(a=="調課")
       {
@@ -105,12 +109,20 @@
 
       $(this).css("background-color","#FFFFCC");
       
-      //console.log( $(".chnage").val() );
+      
 
     
     
   });
-  
+  //自動帶入
+  $('#original').on("input",function(event){
+        
+         ori_name = $('#original').val();
+        $('.original_name').val(ori_name);
+        console.log(ori_name);
+
+    });
+      //console.log( $(".chnage").val() );
     
 
  
@@ -147,7 +159,7 @@
        <option  value="調課">調課</option>
       　<option  value="排代">排代</option>
      </select>
-
+     <input class="col-sm-2 change original_name" type="text" name="re_name" placeholder="請假老師" title="請假老師："  style="color:rgb(255, 0, 0)"  readonly="readonly"  >
      <input class="col-sm-3  change" placeholder="調課日期：" name="re_date" type="date">    
      <select class="col-sm-1   change"   placeholder="調課節次" name="re_classes">
        　<option value="">節次</option>
@@ -179,9 +191,9 @@
     <iframe name="hidden_iframe" style="display:none;"></iframe>
 
     <form id="myForm" onsubmit=confirmExit()  style="line-height:2em;padding: 0%;"  
-    action="https://script.google.com/macros/s/AKfycbw4c7mrjK5b5h6YLD88JkEI1sTUA-to5LpRJTPlU_OIuIro5xcrJhe08JW2byCOkaqDWw/exec" 
+    action="https://script.google.com/macros/s/AKfycbwtK0PReCD42K8KSQduNv6GGGy90tj0xBHxivsCT1k9kE2KcEGLd2hWNXk5j8l2ZUSwGw/exec" 
     method="post"  target="hidden_iframe">
-        
+    <input style="background:rgb(255, 0, 0)" class="col-sm-6 " placeholder="填入請假老師" name="original_name" id="original" >   
    
   </div>
   <input  type="hidden" name="method" value="write"  >
