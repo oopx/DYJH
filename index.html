@@ -12,6 +12,11 @@
     *{
       text-align: center;
     }
+    img{
+
+      vertical-align:top;
+      
+    }
 
     hr.style-one {
         border: 0;
@@ -72,6 +77,9 @@
 	}
 
     function deleteNew() {
+        if(confirmDelete()==false)
+        return;
+        
         if(j<=1)
         { j=1;
           return; }
@@ -186,9 +194,13 @@
     border-width:3px;
     border-style:solid;border-color:#FAFAF0;
     text-align: center">
-    <img src="https://upload.cc/i1/2021/06/16/Nauhj0.png"width="45px" / >
+    
+    <h1 style="display:inline;">
+    <img  src="https://upload.cc/i1/2021/06/16/Nauhj0.png"width="45px" / >
     <h1 style="display:inline;">東原國中教務處</h1>
+    
     <iframe name="hidden_iframe" style="display:none;"></iframe>
+    
 
     <form id="myForm" onsubmit=confirmExit()  style="line-height:2em;padding: 0%;"  
     action="https://script.google.com/macros/s/AKfycbwtK0PReCD42K8KSQduNv6GGGy90tj0xBHxivsCT1k9kE2KcEGLd2hWNXk5j8l2ZUSwGw/exec" 
@@ -227,6 +239,22 @@
           return true; 
           }
           else{ 
+            
+           event.preventDefault();
+           //window.history.back(); 
+          
+        }
+      }
+
+      function confirmDelete()
+        {
+          //confirmExit("ok?");
+          if (confirm("確定要刪除嗎")==true){ 
+          
+          return true; 
+          }
+          else{ 
+          return false;
            event.preventDefault();
            //window.history.back(); 
           
