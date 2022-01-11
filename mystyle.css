@@ -1,0 +1,48 @@
+*{
+    text-align: center;
+  }
+  img{
+
+    vertical-align:top;
+    
+  }
+
+  .num{
+    font-size:  9px;
+    padding: 1%;
+    margin: 0%;
+    background:rgb(221, 96, 96);
+    height: 30px ;
+  }
+
+  hr.style-one {
+      border: 0;
+      height: 2px;
+      background: #333;
+      background-image: linear-gradient(to right, rgb(255, 166, 166), rgb(247, 104, 104), rgb(255, 166, 166));
+  }
+  button,form * {
+    font-size:26px;
+    border-radius:6px;
+    margin: 10;
+    padding: 10;
+  }
+
+  button{
+    
+    background:rgb(246, 255, 122); 
+    padding: 25;
+    
+    border: solid 0.5px rgb(112, 112, 112);
+       
+  }
+
+  input,select{
+    border-radius:0px;
+    padding: 25;
+    border: solid 0.5px rgb(102, 102, 102);
+    height: 33px;
+    appearance:none;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+   } 

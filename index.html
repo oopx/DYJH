@@ -3,190 +3,78 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <base target="_top">
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+    </script>
+
+    <script src='main.js'></script>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+    
   </head>
   
-  <style>
-     
-        
-    *{
-      text-align: center;
-    }
-    img{
 
-      vertical-align:top;
-      
-    }
-
-    hr.style-one {
-        border: 0;
-        height: 2px;
-        background: #333;
-        background-image: linear-gradient(to right, rgb(255, 166, 166), rgb(247, 104, 104), rgb(255, 166, 166));
-    }
-    button,form * {
-      font-size:26px;
-      border-radius:6px;
-      margin: 10;
-      padding: 10;
-    }
-
-    button{
-      
-      background:rgb(246, 255, 122); 
-      padding: 25;
-      
-      border: solid 0.5px rgb(112, 112, 112);
-         
-    }
-
-    input,select{
-      border-radius:0px;
-      padding: 25;
-      border: solid 0.5px rgb(102, 102, 102);
-      appearance:none;
-      -moz-appearance:none;
-      -webkit-appearance:none;
-     } 
-      
-    </style>
     
-  
-  <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script>
-    var j=1;
-    var ori_name = $('#original').val();
-
-    function addnew(){
-        
-        $td=$(".cell").clone();
-         $(this).val(""); 
-         $td.attr('id',j);
-         
-         $td.removeClass();
-         $td.removeAttr("style");
-         //$td.children().attr('required','required') ;
-         for(i=0;i<11;i++){
-            $td.children().eq(i).attr('name', ($td.children().eq(i).attr('name'))+String(j)); 
-            
-         }
-         j=j+1;
-	    $("form").append($td);
-      
-     
-	}
-
-    function deleteNew() {
-        if(confirmDelete()==false)
-        return;
-        
-        if(j<=1)
-        { j=1;
-          return; }
-        $td=$("#"+String(j-1));
-        $td.detach();
-        j=j-1;
-    }
   
   
 
-
-  $(document).ready(function(){
-    addnew();
-    $("#btn1").click (addnew);
-    
-    $("#btn2").click (deleteNew);
-    $(".change").hide(); 
-
-    
-    $("#myForm").on("change",".type",function(){
-      
-      a=$(this).val();
-      //alert(a);
-      //$(".change").hide();
-
-      console.log("調課");
-      console.log(ori_name);
-      $(this).parent().find(".change").hide();
-      if(a=="調課")
-      {
-        
-        
-        $(this).parent().find(".change").show();
-      }
-
-      $(this).css("background-color","#FFFFCC");
-      
-      
-
-    
-    
-  });
-  //自動帶入
-  $('#original').on("input",function(event){
-        
-         ori_name = $('#original').val();
-        $('.original_name').val(ori_name);
-        console.log(ori_name);
-
-    });
-      //console.log( $(".chnage").val() );
-    
-
- 
-
-  })
-</script>
-  
   
   
   <body>
     <!-- 表格模組 -->
-    <div style="display:none" class="cell" name="method"  style="line-height:2em;padding: 0%;" >
-           
-      <input class="col-sm-2" type="text" name="name" placeholder="填入代課老師" title="填入代課老師" required="required"   >  
-      <input class="col-sm-3" placeholder="日期：" name="date" type="date" required="required" >    
-      <select class="col-sm-1"   placeholder="節次" name="classes" required="required" >
-       　  <option value="">節次</option>
-           <option value="1">第1節</option>
-         　<option value="2">第2節</option>
-         　<option value="3">第3節</option>
-         　<option value="4">第4節</option>
-         　<option value="5">第5節</option>
-         　<option value="6">第6節</option>
-         　<option value="7">第7節</option>
-         　<option value="8">第8節</option>
- 
-     }
-     </select>
+    <div style="display:none" class="cell" name="method"   >
+      <!-- 留意改動會影響到children -->
+      <input  class="col-sm-12  num" type="text"    readonly="readonly"  > 
+      <div >
+            <input class="col-sm-2" type="text" name="name" placeholder="填入代課老師" title="填入代課老師" required="required"   >  
+            <input class="col-sm-2" placeholder="日期：" name="date" type="date" required="required" >    
+            <select class="col-sm-1"   placeholder="節次" name="classes" required="required" >
+            　  <option value="">節次</option>
+                <option value="1">第1節</option>
+              　<option value="2">第2節</option>
+              　<option value="3">第3節</option>
+              　<option value="4">第4節</option>
+              　<option value="5">第5節</option>
+              　<option value="6">第6節</option>
+              　<option value="7">第7節</option>
+              　<option value="8">第8節</option>
+      
+          }
+          </select>
 
-     <input class="col-sm-2" type="text" name="classroom" placeholder="代課班級" title="填入班級" required="required" />
-     <input class="col-sm-2" type="text" name="subject" placeholder="調課科目" title="填入科目" required="required" />
-     <select class="col-sm-1 type " name="type" required="required" >
-       <option  value="">課務</option>
-       <option  value="調課">調課</option>
-      　<option  value="排代">排代</option>
-     </select>
-     <input class="col-sm-2 change original_name" type="text" name="re_name" placeholder="請假老師" title="請假老師："  style="color:rgb(255, 0, 0)"  readonly="readonly"  >
-     <input class="col-sm-3  change" placeholder="調課日期：" name="re_date" type="date">    
-     <select class="col-sm-1   change"   placeholder="調課節次" name="re_classes">
-       　<option value="">節次</option>
-         <option value="1">第1節</option>
-       　<option value="2">第2節</option>
-       　<option value="3">第3節</option>
-       　<option value="4">第4節</option>
-       　<option value="5">第5節</option>
-       　<option value="6">第6節</option>
-       　<option value="7">第7節</option>
-       　<option value="8">第8節</option>
+          <input class="col-sm-2" type="text" name="classroom" placeholder="代課班級" title="填入班級" required="required" />
+          <input class="col-sm-2" type="text" name="subject" placeholder="調課科目" title="填入科目" required="required" />
+          <select class="col-sm-1 type " name="type" required="required" >
+            <option  value="">課務</option>
+            <option  value="調課">調課</option>
+            　<option  value="排代">排代</option>
+          </select>
+          <input class="col-sm-2 change original_name" type="text" name="re_name" placeholder="請假老師" title="請假老師："  style="color:rgb(255, 0, 0)"  readonly="readonly"  >
+          <input class="col-sm-3  change" placeholder="調課日期：" name="re_date" type="date">    
+          <select class="col-sm-1   change"   placeholder="調課節次" name="re_classes">
+            　<option value="">節次</option>
+              <option value="1">第1節</option>
+            　<option value="2">第2節</option>
+            　<option value="3">第3節</option>
+            　<option value="4">第4節</option>
+            　<option value="5">第5節</option>
+            　<option value="6">第6節</option>
+            　<option value="7">第7節</option>
+            　<option value="8">第8節</option>
 
-       <input class="col-sm-2  change" type="text" name="re_classroom" placeholder="調課班級" title="填入班級" />
-       <input class="col-sm-2  change" type="text" name="re_subject" placeholder="填入科目" title="填入科目" />
+            <input class="col-sm-2  change" type="text" name="re_classroom" placeholder="調課班級" title="填入班級" />
+            <input class="col-sm-2  change" type="text" name="re_subject" placeholder="填入科目" title="填入科目" />
+            <!-- 分隔線 -->
+          <!-- <hr class="style-one" /> -->
+      </div>
+     
+    </div>
 
-     <hr class="style-one" />
-
-     <!-- 正文開始 -->
- </div>
+    <!-- 正文開始 -->
     <div style="
     border-radius:0px;
     height:auto;
@@ -221,56 +109,9 @@
 
 
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
     
-    <script>
-        
-        function confirmExit()
-        {
-          //confirmExit("ok?");
-          if (confirm("確定要提交登記了嗎")==true){ 
-          
-          alert("成功上傳");
-          return true; 
-          }
-          else{ 
-            
-           event.preventDefault();
-           //window.history.back(); 
-          
-        }
-      }
-
-      function confirmDelete()
-        {
-          //confirmExit("ok?");
-          if (confirm("確定要刪除嗎")==true){ 
-          
-          return true; 
-          }
-          else{ 
-          return false;
-           event.preventDefault();
-           //window.history.back(); 
-          
-        }
-      }
-
-        function afterButtonClicked() {
-          var jsonData = $('#myForm').serializeArray();
-         // alert($.param(jsonData));
-            //document.getElementById("myForm").reset();
-            //google.script.run.addNewRow(rowData);
-           // alert("成功上傳");
-        }
-
-    document.getElementById("submitButton").addEventListener("click", afterButtonClicked);
-    </script>
-    
-  </body>
+   
+  
 </html>
