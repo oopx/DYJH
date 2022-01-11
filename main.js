@@ -8,12 +8,14 @@ var ori_name = $('#original').val();//請假師
          $(this).val(""); 
          $td.attr('id',j);
          $td.children("div").attr('class',j);
+         
 
          $td.children("input").val(j);
          //$td.children("input").attr('class',$td.children("input").attr('class')+String(j));
 
          $td.removeClass();
          $td.removeAttr("style");
+         //$td.children("div").attr('class',"cell_in");
          //$td.children().attr('required','required') ;
          for(i=0;i<11;i++){
             
@@ -46,15 +48,40 @@ var ori_name = $('#original').val();//請假師
         $td.detach();
         j=j-1;
     }
+
+   
+    // 一鍵開關函式
+    function showAll(){
+      //console.log("test");
+      
+      act=$("img").attr('act')
+      if(act!="action")
+        {
+          $("[cell=cell_in]").slideDown();
+        //$(this).removeAttr('act');
+          $("img").attr('act','action');
+        }
+      
+      
+      else if(act=="action")
+      {
+        $("[cell=cell_in]").slideUp();
+        $("img").removeAttr('act');
+        //$(this).attr('act','action');
+      }
+  }
   
   
 
-
+//一戴入便執行
   $(document).ready(function(){
     addnew();
     $("#btn1").click (addnew);
     
     $("#btn2").click (deleteNew);
+
+    $("#submitButton").click ( function(){ $("[cell=cell_in]").slideDown();});
+    $("img").click (showAll);
     
     
     //點擊後收合、開啟
@@ -128,6 +155,7 @@ var ori_name = $('#original').val();//請假師
   function confirmExit()
         {
           //confirmExit("ok?");
+          $(".cell").slideDown();
           if (confirm("確定要提交登記了嗎")==true){ 
           
           alert("成功上傳");

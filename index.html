@@ -29,7 +29,7 @@
     <div style="display:none" class="cell" name="method"   >
       <!-- 留意改動會影響到children -->
       <input  class="col-sm-12  num" type="text"    readonly="readonly"  > 
-      <div >
+      <div cell="cell_in">
             <input class="col-sm-2" type="text" name="name" placeholder="填入代課老師" title="填入代課老師" required="required"   >  
             <input class="col-sm-2" placeholder="日期：" name="date" type="date" required="required" >    
             <select class="col-sm-1"   placeholder="節次" name="classes" required="required" >
@@ -90,7 +90,7 @@
     <iframe name="hidden_iframe" style="display:none;"></iframe>
     
 
-    <form id="myForm" onsubmit=confirmExit()  style="line-height:2em;padding: 0%;"  
+    <form id="myForm" onsubmit=test();confirmExit()  style="line-height:2em;padding: 0%;"  
     action="https://script.google.com/macros/s/AKfycbwtK0PReCD42K8KSQduNv6GGGy90tj0xBHxivsCT1k9kE2KcEGLd2hWNXk5j8l2ZUSwGw/exec" 
     method="post"  target="hidden_iframe">
     <input style="background:rgb(255, 166, 166)" class="col-sm-6 " placeholder="填入請假老師" name="original_name" id="original" >   
