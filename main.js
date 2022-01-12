@@ -8,6 +8,7 @@ var ori_name = $('#original').val();//請假師
          $(this).val(""); 
          $td.attr('id',j);
          $td.children("div").attr('class',j);
+         $td.children("div").attr('cell',"cell_in");
          
 
          $td.children("input").val(j);
