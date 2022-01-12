@@ -155,7 +155,7 @@ var ori_name = $('#original').val();//請假師
   function confirmExit()
         {
           //confirmExit("ok?");
-          $(".cell").slideDown();
+          $("[cell=cell_in]").slideDown();
           if (confirm("確定要提交登記了嗎")==true){ 
           
           alert("成功上傳");
