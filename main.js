@@ -82,7 +82,7 @@ var ori_name = $('#original').val();//請假師
     $("#btn2").click (deleteNew);
 
     $("#submitButton").click ( function(){ $("[cell=cell_in]").slideDown();});
-    $("img").click (showAll);
+    $(".dyjh-img").click (showAll);
     
     
     //點擊後收合、開啟
