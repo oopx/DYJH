@@ -22,7 +22,7 @@
       background-image: linear-gradient(to right, rgb(255, 166, 166), rgb(247, 104, 104), rgb(255, 166, 166));
   }
   button,form * {
-    font-size:26px;
+    font-size:20px;
     border-radius:6px;
     margin: 10;
     padding: 10;
@@ -42,7 +42,12 @@
     padding: 25;
     border: solid 0.5px rgb(102, 102, 102);
     height: 33px;
+    margin: 20;
     appearance:none;
     -moz-appearance:none;
     -webkit-appearance:none;
    } 
+   
+   .name{
+    color:rgb(255, 0, 0);
+   }

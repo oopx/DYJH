@@ -30,10 +30,10 @@
       <!-- 留意改動會影響到children -->
       <input  class="col-sm-12  num" type="text"    readonly="readonly"  > 
       <div class="toggle">
-            <input class="col-sm-2" type="text" name="name" placeholder="填入代課老師" title="填入代課老師" required="required"   >  
+           
             <!-- <select class="col-sm-2" name="name" placeholder="填入代課老師" title="填入代課老師" required="required"   >  -->
               
-            <input class="col-sm-2" placeholder="日期：" name="date" type="date" required="required" >    
+            <input class="col-sm-1" placeholder="日期：" name="date" type="date" required="required" >    
             <select class="col-sm-1"   placeholder="節次" name="classes" required="required" >
             　  <option value="">節次</option>
                 <option value="1">第1節</option>
@@ -45,18 +45,31 @@
               　<option value="7">第7節</option>
               　<option value="8">第8節</option>
       
-          }
+          
           </select>
 
-          <input class="col-sm-2" type="text" name="classroom" placeholder="代課班級" title="填入班級" required="required" />
-          <input class="col-sm-2" type="text" name="subject" placeholder="調課科目" title="填入科目" required="required" />
+          <select class="col-sm-1 "  name="classroom" placeholder="調課班級"  required="required" >
+              <option value="">填入班級</option>
+              <option value="七忠">七忠</option>
+            　<option value="七孝">七孝</option>
+            　<option value="八忠">八忠</option>
+            　<option value="八孝">八孝</option>
+            　<option value="九忠">九忠</option>
+            　<option value="九孝">九孝</option>
+            　<option value="九仁">九仁</option>
+          </select>
+
+          <input class="col-sm-1 name" type="text" name="name" placeholder="填入代課老師" title="填入代課老師" required="required"   >  
+         
+          <input class="col-sm-1" type="text" name="subject" placeholder="調課科目" title="填入科目" required="required" />
           <select class="col-sm-1 type " name="type" required="required" >
             <option  value="">課務</option>
-            <option  value="調課">調課</option>
-            　<option  value="排代">排代</option>
+            <option  value="調課">D調課</option>
+            　<option  value="排代">A排代</option>
           </select>
-          <input class="col-sm-2 change original_name" type="text" name="re_name" placeholder="請假老師" title="請假老師："  style="color:rgb(255, 0, 0)"  readonly="readonly"  >
-          <input class="col-sm-3  change" placeholder="調課日期：" name="re_date" type="date">    
+          
+          <input  type="hidden" class="col-sm-1  change original_name" type="text" name="re_name" placeholder="請假老師" title="請假老師："    readonly="readonly"  >
+          <input class="col-sm-1  change" placeholder="調課日期：" name="re_date" type="date">    
           <select class="col-sm-1   change"   placeholder="調課節次" name="re_classes">
             　<option value="">節次</option>
               <option value="1">第1節</option>
@@ -67,9 +80,20 @@
             　<option value="6">第6節</option>
             　<option value="7">第7節</option>
             　<option value="8">第8節</option>
+           </select>
 
-            <input class="col-sm-2  change" type="text" name="re_classroom" placeholder="調課班級" title="填入班級" />
-            <input class="col-sm-2  change" type="text" name="re_subject" placeholder="填入科目" title="填入科目" />
+            <select  class="col-sm-1  change"  name="re_classroom" placeholder="調課班級">
+                <option value="">填入班級</option>
+                <option value="七忠">七忠</option>
+              　<option value="七孝">七孝</option>
+              　<option value="八忠">八忠</option>
+              　<option value="八孝">八孝</option>
+              　<option value="九忠">九忠</option>
+              　<option value="九孝">九孝</option>
+              　<option value="九仁">九仁</option>
+            </select>
+
+            <input class="col-sm-1  change" type="text" name="re_subject" placeholder="填入科目" title="填入科目" />
             <!-- 分隔線 -->
           <!-- <hr class="style-one" /> -->
       </div>
