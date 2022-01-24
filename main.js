@@ -34,7 +34,7 @@ var ori_name = $('#original').val();//請假師
       if(j!=2){
       var up="."+String(j-2);
       console.log(up);
-      $(String(up)).slideUp();
+      $(String(up)).slideUp( 1200,"swing",);
     }
      
 	}
