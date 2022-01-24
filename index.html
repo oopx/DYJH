@@ -5,7 +5,8 @@
     <base target="_top">
     
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
+   <!-- 引入NAME AND GMAIL -->
+    <script src="gmail.js">	</script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -31,10 +32,10 @@
       <input  class="col-sm-12  num" type="text"    readonly="readonly"  > 
       <div class="toggle">
            
-            <!-- <select class="col-sm-2" name="name" placeholder="填入代課老師" title="填入代課老師" required="required"   >  -->
+         
               
-            <input class="col-sm-1" placeholder="日期：" name="date" type="date" required="required" >    
-            <select class="col-sm-1"   placeholder="節次" name="classes" required="required" >
+            <input class="col-sm-2 mod" placeholder="日期：" name="date" type="date" required="required" >    
+            <select class="col-sm-1 mod"   placeholder="節次" name="classes" required="required" >
             　  <option value="">節次</option>
                 <option value="1">第1節</option>
               　<option value="2">第2節</option>
@@ -48,7 +49,7 @@
           
           </select>
 
-          <select class="col-sm-1 "  name="classroom" placeholder="調課班級"  required="required" >
+          <select class="col-sm-1 mod "  name="classroom" placeholder="調課班級"  required="required" >
               <option value="">填入班級</option>
               <option value="七忠">七忠</option>
             　<option value="七孝">七孝</option>
@@ -59,18 +60,22 @@
             　<option value="九仁">九仁</option>
           </select>
 
-          <input class="col-sm-1 name" type="text" name="name" placeholder="填入代課老師" title="填入代課老師" required="required"   >  
-         
-          <input class="col-sm-1" type="text" name="subject" placeholder="調課科目" title="填入科目" required="required" />
-          <select class="col-sm-1 type " name="type" required="required" >
+          <!-- <input class="col-sm-1 name" type="text" name="name" placeholder="填入代課老師" title="填入代課老師" required="required"   >   -->
+          <!-- 改成下拉式，自動載值 -->
+          <select class="col-sm-1 teacher mod" name="name"  required="required"   > 
+            <option value="">填入代課老師</option>
+          </select>
+
+          <input class="col-sm-1 mod" type="text" name="subject" placeholder="調課科目" title="填入科目" required="required" />
+          <select class="col-sm-1 type mod " name="type" required="required" >
             <option  value="">課務</option>
             <option  value="調課">D調課</option>
-            　<option  value="排代">A排代</option>
+            　<option  value="排代">E自理</option>
           </select>
           
-          <input  type="hidden" class="col-sm-1  change original_name" type="text" name="re_name" placeholder="請假老師" title="請假老師："    readonly="readonly"  >
-          <input class="col-sm-1  change" placeholder="調課日期：" name="re_date" type="date">    
-          <select class="col-sm-1   change"   placeholder="調課節次" name="re_classes">
+          <input  type="hidden" class="col-sm-1  change original_name mod" type="text" name="re_name" placeholder="請假老師" title="請假老師："    readonly="readonly"  >
+          <input class="col-sm-2  change mod" placeholder="調課日期：" name="re_date" type="date">    
+          <select class="col-sm-1   change mod"   placeholder="調課節次" name="re_classes">
             　<option value="">節次</option>
               <option value="1">第1節</option>
             　<option value="2">第2節</option>
@@ -82,7 +87,7 @@
             　<option value="8">第8節</option>
            </select>
 
-            <select  class="col-sm-1  change"  name="re_classroom" placeholder="調課班級">
+            <select  class="col-sm-1  change mod"  name="re_classroom" placeholder="調課班級">
                 <option value="">填入班級</option>
                 <option value="七忠">七忠</option>
               　<option value="七孝">七孝</option>
@@ -93,7 +98,7 @@
               　<option value="九仁">九仁</option>
             </select>
 
-            <input class="col-sm-1  change" type="text" name="re_subject" placeholder="填入科目" title="填入科目" />
+            <input class="col-sm-1  change mod" type="text" name="re_subject" placeholder="填入科目" title="填入科目" />
             <!-- 分隔線 -->
           <!-- <hr class="style-one" /> -->
       </div>
@@ -123,8 +128,10 @@
     <form id="myForm" onsubmit=confirmExit(),showAll()  style="line-height:2em;padding: 0%;"  
     action="https://script.google.com/macros/s/AKfycbyv05xPl2j-cWROF6EA9NF8GAIUQx2PhL5x86FPnc-gwN_q-RAHcHhfk9yllCW_Ywj5Ow/exec" 
     method="post"  target="hidden_iframe">
-    <input style="background:rgb(255, 166, 166)" class="col-sm-6 " placeholder="填入請假老師" name="original_name" id="original" required="required">   
-   
+    <!-- <input style="background:rgb(243, 206, 206)" class="col-sm-6 " placeholder="填入請假老師" name="original_name" id="original" required="required">    -->
+    <select style="background:rgb(243, 206, 206)" class="col-sm-3 teacher"  name="original_name" id="original" required="required"   > 
+      <option value="">填入請假老師</option>
+    </select>
   </div>
   <input  type="hidden" name="method" value="write"  >
   <button  class="col-sm-12" id="submitButton"  type="submit"   value="提交" >提交</button>

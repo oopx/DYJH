@@ -72,10 +72,20 @@ var ori_name = $('#original').val();//請假師
       }
   }
   
-  
+  function addOption(){
+
+    gmail.forEach(element => {
+			
+    var text=element.name;
+		var value=element.name;
+    $('.teacher').append('<option value='+value+'>'+text+'</option>');// 動態新增選項
+    })
+  }
 
 //一戴入便執行
   $(document).ready(function(){
+    
+    addOption();// 動態新增請假師選項
     addnew();
     $("#btn1").click (addnew);
     
@@ -83,6 +93,7 @@ var ori_name = $('#original').val();//請假師
 
     $("#submitButton").click ( function(){ $("[cell=cell_in]").slideDown();});
     $(".dyjh-img").click (showAll);
+    
     
     
     //點擊後收合、開啟
