@@ -25,7 +25,7 @@
       background-image: linear-gradient(to right, rgb(255, 166, 166), rgb(247, 104, 104), rgb(255, 166, 166));
   }
   button,form * {
-    font-size:16px;
+    font-size:20px;
     border-radius:6px;
     margin: 10;
     padding: 10;

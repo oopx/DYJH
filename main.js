@@ -1,3 +1,4 @@
+
 var j=1;
 var ori_name = $('#original').val();//請假師
     
@@ -207,3 +208,5 @@ var ori_name = $('#original').val();//請假師
         }
 
     //document.getElementById("submitButton").addEventListener("click", afterButtonClicked);
+
+    
