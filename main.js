@@ -54,8 +54,8 @@ var ori_name = $('#original').val();//請假師
    
     // 一鍵開關函式
     function showAll(){
-      //console.log("test");
-      
+     
+     
       act=$("img").attr('act')
       if(act!="action")
         {
@@ -71,6 +71,7 @@ var ori_name = $('#original').val();//請假師
         $("img").removeAttr('act');
         //$(this).attr('act','action');
       }
+      
   }
   
   function addOption(){
@@ -99,6 +100,8 @@ var ori_name = $('#original').val();//請假師
     
     //點擊後收合、開啟
     $("#myForm").on ("click",".num",function slide_down(){
+      $(this).parent().children("div").slideToggle("slow");
+      /*
       var act=$(this).attr('act')
       console.log(act);
       if(act!="action")
@@ -117,6 +120,8 @@ var ori_name = $('#original').val();//請假師
         //$(this).attr('act','action');
       }
       console.log("click");
+    
+    */
     })
     $(".change").hide(); 
 
@@ -141,7 +146,7 @@ var ori_name = $('#original').val();//請假師
         
       }
 
-      $(this).css("background-color","#FFFFCC");
+      $(this).css("background-color","rgb(243, 206, 206)");
       
       
 
